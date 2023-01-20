@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mix Pizzas</title>
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topnav">
+
+          <a href="index.html">Home</a>
+          <a href="pizzas.html">Pizzas</a>
+          <a href="sides.html">Sides</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="desserts.html">Desserts</a>
+          <a href="mixPizza.html" class="active">Mix Pizzas</a>
+          <a href="cart.html">View Cart</a>
+
+
+
+      </div>
+    <h1>Mix Pizzas</h1>
+    <form>
+        <label>First Pizza:</label>
+        <select id="first-pizza">
+            <option value=""></option>
+            <option value="Original Cheese & Tomato">Original Cheese & Tomato</option>
+            <option value="Mighty Meaty">Mighty Meaty</option>
+            <option value="The Meatfielder">The Meatfielder</option>
+            <option value="The Cheeseburger">The Cheeseburger</option>
+            <option value="Absolute Banger">Absolute Banger</option>
+            <option value="The Ultimate Spicy Sausage">The Ultimate Spicy Sausage</option>
+            <option value="Pepperoni Passion">Pepperoni Passion</option>
+            <option value="Texas BBQ">Texas BBQ</option>
+            <option value="Vegi Supreme">Vegi Supreme</option>
+            <option value="American Hot">American Hot</option>
+            <option value="Chicken Feast">Chicken Feast</option>
+            <option value="Hawaiian">Hawaiian</option>
+            <option value="Meateilicious">Meateilicious</option>
+            <option value="Meateor">Meateor</option>
+            <option value="New Yorker">New Yorker</option>
+            <option value="Hot & Spicy">Hot & Spicy</option>
+        </select>
+        <label>Second Pizza:</label>
+        <select id="second-pizza">
+            <option value=""></option>
+            <option value="Original Cheese & Tomato">Original Cheese & Tomato</option>
+            <option value="Mighty Meaty">Mighty Meaty</option>
+            <option value="The Meatfielder">The Meatfielder</option>
+            <option value="The Cheeseburger">The Cheeseburger</option>
+            <option value="Absolute Banger">Absolute Banger</option>
+            <option value="The Ultimate Spicy Sausage">The Ultimate Spicy Sausage</option>
+            <option value="Pepperoni Passion">Pepperoni Passion</option>
+            <option value="Texas BBQ">Texas BBQ</option>
+            <option value="Vegi Supreme">Vegi Supreme</option>
+            <option value="American Hot">American Hot</option>
+            <option value="Chicken Feast">Chicken Feast</option>
+            <option value="Hawaiian">Hawaiian</option>
+            <option value="Meateilicious">Meateilicious</option>
+            <option value="Meateor">Meateor</option>
+            <option value="New Yorker">New Yorker</option>
+            <option value="Hot & Spicy">Hot & Spicy</option>
+        </select>
+        <select id="size">
+            <option value="">Select an option</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="Extra-Large">Extra-Large</option>
+        </select>
+        <button type="submit" id="add-to-cart">Add to Cart</button>
+    </form>
+    <script>
+        // Add event listener to the submit button
+        let addToCartButton = document.querySelector("#add-to-cart");
+        addToCartButton.addEventListener("click", function (event) {
+            
+            event.preventDefault();
+            
+            // Get the selected pizzas
+            let firstPizza = document.querySelector("#first-pizza").value;
+            let secondPizza = document.querySelector("#second-pizza").value;
+            let option = document.querySelector("#size").value;
+            let price = "";
+            if(firstPizza === "" || secondPizza === ""){
+              alert("Please select two different pizzas")
+              return;
+            }
+            if (option === "") {
+                alert("Please select a size")
+                return;
+            }
+            if (option === "Small") {
+                price = "16.99";
+            }
+            if (option === "Medium") {
+                price = "19.99";
+            }
+            if (option === "Large") {
+                price = "21.99";
+            }
+            if (option === "Extra-Large") {
+                price = "24.99";
+            }
+            
+            // Add the mixed pizzas to the cart in local storage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: "Mixed Pizza: " + firstPizza + " and " + secondPizza, price: price,  option: option });
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Show a message to the user
+            alert("Mixed Pizza added to the cart!");
+        });
+    </script>
+  </body>
+</html>

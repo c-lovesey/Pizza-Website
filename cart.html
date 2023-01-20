@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart</title>
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topnav">
+
+          <a href="index.html">Home</a>
+          <a href="pizzas.html">Pizzas</a>
+          <a href="sides.html">Sides</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="desserts.html">Desserts</a>
+          <a href="mixPizza.html">Mix Pizzas</a>
+          <a href="cart.html" class="active">View Cart</a>
+
+
+
+      </div>
+    <h1>Cart</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+            <th>Size</th>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+    <p id="total"></p>
+    <a href="index.html">Continue Shopping</a>
+    <button id="checkout-button" disabled>Checkout</button>
+    <script>
+        // Get the cart from local storage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Create a table row for each item in the cart
+        let cartItems = document.querySelector("#cart-items");
+        let total = 0;
+        cart.forEach(function (item, index) {
+            total += parseFloat(item.price);
+            let row = document.createElement("tr");
+            let nameCell = document.createElement("td");
+            nameCell.textContent = item.name;
+            let optionCell = document.createElement("td");
+            optionCell.textContent = item.option;
+            let priceCell = document.createElement("td");
+            priceCell.textContent = "$" + item.price;
+            let removeCell = document.createElement("td");
+            let removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.addEventListener("click", function () {
+                // remove item from the cart
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                // refresh the cart page
+                location.reload();
+            });
+            removeCell.appendChild(removeButton);
+            row.appendChild(nameCell);
+            row.appendChild(optionCell);
+            row.appendChild(priceCell);
+            row.appendChild(removeCell);
+            cartItems.appendChild(row);
+        });
+        let totalEl = document.querySelector("#total");
+        totalEl.textContent = "Total: $" + total.toFixed(2);
+
+        // Enable the checkout button if the cart is not empty
+        let checkoutButton = document.querySelector("#checkout-button");
+        if (cart.length > 0) {
+            checkoutButton.disabled = false;
+            checkoutButton.addEventListener("click", function () {
+                // Redirect to the checkout page
+                alert("checkout button doesnt work")
+               // window.location.href = "checkout.html";
+            });
+        }
+
+    </script>
+  </body>
+</html>

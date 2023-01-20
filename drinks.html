@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drinks</title>
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topnav">
+
+          <a href="index.html">Home</a>
+          <a href="pizzas.html">Pizzas</a>
+          <a href="sides.html">Sides</a>
+          <a href="drinks.html" class="active">Drinks</a>
+          <a href="desserts.html">Desserts</a>
+          <a href="mixPizza.html">Mix Pizzas</a>
+          <a href="cart.html">View Cart</a>
+
+
+
+      </div>
+      <h1>Drinks</h1>
+      <div class="grid">
+          <div class="grid-item">
+              <h2>Coca-Cola Classic</h2>
+              <img src="Images/DrinkImage1.webp" class="Drink">
+
+              <select class="item-option">
+                  <option value="" selected>Select an option</option>
+                  <option value="1.25l">1.25l: $2.49</option>
+                  <option value="500ml">500ml: $1.49</option>
+              </select>
+              <button class="add-to-cart" data-size= "1.25l"data-price="2.49" data-name="Coca-Cola Classic">Add to Cart</button>
+          </div>
+          <div class="grid-item">
+              <h2>Diet Coke</h2>
+              <img src="Images/DrinkImage2.webp" class="Drink">
+              <select id="item1-option" class="item-option">
+                  <option value="" selected>Select an option</option>
+                  <option value="1.25l">1.25l: $2.49</option>
+                  <option value="500ml">500ml: $1.49</option>
+              </select>
+              <button class="add-to-cart"  data-size= "1.25l"data-name="Diet Coke"data-price="2.49">Add to Cart</button>
+          </div>
+          <div class="grid-item">
+              <h2>Fanta</h2>
+              <img src="Images/DrinkImage3.webp" class="Drink">
+              <select id="item1-option" class="item-option">
+                  <option value="" selected>Select an option</option>
+                  <option value="1.25l">1.25l: $2.49</option>
+                  <option value="500ml">500ml: $1.49</option>
+              </select>
+              <button class="add-to-cart"  data-size= "1.25l"data-name="Fanta" data-price="2.49">Add to Cart</button>
+          </div>
+          <div class="grid-item">
+              <h2>Sprite</h2>
+              <img src="Images/DrinkImage4.webp" class="Drink">
+              
+              <select id="item1-option" class="item-option">
+                  <option value="" selected>Select an option</option>
+                  <option value="1.25l">1.25l: $2.49</option>
+                  <option value="500ml">500ml: $1.49</option>
+              </select>
+              <button class="add-to-cart" data-size= "1.25l" data-name="Sprite" data-price="2.49">Add to Cart</button>
+          </div>
+          <div class="grid-item">
+              <h2>Coca-Cola Zero Sugar</h2>
+              <img src="Images/DrinkImage5.webp" class="Drink">
+              
+              <select id="item1-option" class="item-option">
+                  <option value="" selected>Select an option</option>
+                  <option value="1.25l">1.25l: $2.49</option>
+                  <option value="500ml">500ml: $1.49</option>
+              </select>
+              <button class="add-to-cart"  data-size= "1.25l"data-name="Coca-Cola Zero Sugar" data-price="2.49">Add to Cart</button>
+          </div>
+          <div class="grid-item">
+              <h2>Dr Pepper - 500ml</h2>
+              <img src="Images/DrinkImage6.webp" class="Drink">
+              <p>$1.49  <button class="add-to-cart" data-size="500ml" data-name="Dr Pepper" data-price="1.49">Add to Cart</button></p>
+              
+          </div>
+
+          <div class="grid-item">
+              <h2>Oasis Summer Fruits - 500ml</h2>
+              <img src="Images/DrinkImage7.webp" class="Drink">
+
+              <p>$1.49  <button class="add-to-cart" data-size="500ml" data-name="Oasis Summer Fruits" data-price="1.49">Add to Cart</button></p>
+              
+          </div>
+          <div class="grid-item">
+              <h2>Oasis Citrus Punch - 500ml</h2>
+              <img src="Images/DrinkImage8.webp" class="Drink">
+
+              <p>$1.49  <button class="add-to-cart" data-size="500ml" data-name="Oasis Citrus Punch" data-price="1.49">Add to Cart</button></p>
+              
+          </div>
+          <div class="grid-item">
+              <h2>Glaceau Smartwater (Still) - 600ml</h2>
+              <img src="Images/DrinkImage9.webp" class="Drink">
+
+              <p>$1.49  <button class="add-to-cart" data-size="600ml" data-name="Glaceau Smartwater (Still)" data-price="1.49">Add to Cart</button></p>
+              
+          </div>
+      </div>
+      <script>
+          let addToCartButtons = document.querySelectorAll(".add-to-cart");
+          addToCartButtons.forEach(function (button) {
+              button.addEventListener("click", function () {
+                  // Get the name, price, and option of the item from the button's "data" attributes and dropdown menu
+                  let name = button.getAttribute("data-name");
+                  /*let price = button.getAttribute("data-price");*/
+                  let option = button.previousElementSibling.value;
+                  let price = "";
+                  if (option === "1.25l") {
+                      price = "2.49";
+                  }
+                  if (option === "500ml") {
+                      price = "1.49";
+                  }
+                  else {
+                      price = button.getAttribute("data-price");
+                      option = button.getAttribute("data-size");
+                  }
+                  // Check if the option is empty
+                  if (option === "") {
+                      alert("Please select an option");
+                  } else {
+                      // Add the item, option, and price to the cart in local storage
+                      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                      cart.push({ name: name, price: price, option: option });
+                      localStorage.setItem("cart", JSON.stringify(cart));
+
+                      // Show a message to the user
+                      alert("Added " + name + " - " + option + " to the cart!");
+                  }
+              });
+          });
+      </script>
+  </body>
+</html>

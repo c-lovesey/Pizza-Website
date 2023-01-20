@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pizzas</title>
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topnav">
+
+          <a href="index.html">Home</a>
+          <a href="pizzas.html" class="active">Pizzas</a>
+          <a href="sides.html">Sides</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="desserts.html">Desserts</a>
+          <a href="mixPizza.html">Mix Pizzas</a>
+          <a href="cart.html">View Cart</a>
+
+
+
+      </div>
+  
+    <h1>Pizzas</h1>
+    <div class="grid">
+        <div class="grid-item">
+            <h2>Original Cheese & Tomato</h2>
+            <img src="Images/PizzaImage1.webp" class="Icon">
+            <p>Our original Cheese & Tomato pizza with even more cheese.</p>
+
+            <select class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Original Cheese & Tomato" data-price="10">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Mighty Meaty</h2>
+            <img src="Images/PizzaImage2.webp" class="Icon">
+            <p>Pepperoni, ham, ground beef, sausage, onions, mushrooms and mozzarella cheese.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Mighty Meaty" data-price="12" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>The Meatfielder</h2>
+            <img src="Images/PizzaImage3.webp" class="Icon">
+            <p>Pepperoni, ham, chorizo, pork meatballs and smoked bacon rashers</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="The Meatfielder" data-price="11">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>The Cheeseburger</h2>
+            <img src="Images/PizzaImage4.webp" class="Icon">
+            <p>Double ground beef with fresh tomatoes, onions, sliced gherkins and drizzled with our special burger sauce.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="The Cheeseburger" data-price="10">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Absolute Banger</h2>
+            <img src="Images/PizzaImage5.webp" class="Icon">
+            <p>Pepperoni, sausage, chorizo, hotdog slices and mozzarella cheese.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Absolute Banger" data-price="12">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>The Ultimate Spicy Sausage</h2>
+            <img src="Images/PizzaImage6.webp" class="Icon">
+            <p>'Nduja sausage, salami, red jalapeños and mozzarella cheese on a Domino's tomato sauce base. This medium spice is nothing you can’t handle</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="The Ultimate Spicy Sausage" data-price="11">Add to Cart</button>
+        </div>
+
+        <div class="grid-item">
+            <h2>Pepperoni Passion</h2>
+            <img src="Images/PizzaImage7.webp" class="Icon">
+            <p>Extra pepperoni and extra mozzarella cheese on a tomato sauce base</p>
+
+            <select class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Pepperoni Passion" data-price="10">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Texas BBQ</h2>
+            <img src="Images/PizzaImage8.webp" class="Icon">
+            <p>Tangy bbq sauce topped with smoky bacon, chicken breast strips, onions, green and red peppers.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Texas BBQ" data-price="12" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Vegi Supreme</h2>
+            <img src="Images/PizzaImage9.webp" class="Icon">
+            <p>Onions, green and red peppers, sweetcorn, mushrooms, tomatoes.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Vegi Supreme" data-price="11">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>American Hot</h2>
+            <img src="Images/PizzaImage10.webp" class="Icon">
+            <p>Onions, pepperoni, jalapeño peppers.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="American Hot" data-price="10">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Chicken Feast</h2>
+            <img src="Images/PizzaImage11.webp" class="Icon">
+            <p>Chicken, mushrooms, sweetcorn.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Chicken Feast" data-price="12">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Hawaiian</h2>
+            <img src="Images/PizzaImage12.webp" class="Icon">
+            <p>Ham, pineapple, mushrooms.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Hawaiian" data-price="11">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Meateilicious</h2>
+            <img src="Images/PizzaImage13.webp" class="Icon">
+            <p>Pepperoni, ham, chicken breast strips, smoked bacon rashers, sausage.</p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Meateilicious" data-price="11">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Meateor</h2>
+            <img src="Images/PizzaImage14.webp" class="Icon">
+            <p>A light portion of BBQ sauce topped with pork meatballs, ground beef, sausage, pepperoni, smoky bacon. </p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Meateor" data-price="10">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>New Yorker</h2>
+            <img src="Images/PizzaImage15.webp" class="Icon">
+            <p>Pepperoni, ham, bacon, mushrooms. </p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="New Yorker" data-price="12">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Hot & Spicy</h2>
+            <img src="Images/PizzaImage16.webp" class="Icon">
+            <p>Ground beef, onions, green and red peppers, jalapeño peppers. </p>
+            <select id="item1-option" class="item-option">
+                <option value="" selected>Select an option</option>
+                <option value="Small">Small: $16.99</option>
+                <option value="Medium">Medium: $19.99</option>
+                <option value="Large">Large: $21.99</option>
+                <option value="Extra-Large">Extra-Large: $24.99</option>
+            </select>
+            <button class="add-to-cart" data-name="Hot & Spicy" data-price="11">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        let addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                // Get the name, price, and option of the item from the button's "data" attributes and dropdown menu
+                let name = button.getAttribute("data-name");
+                /*let price = button.getAttribute("data-price");*/
+                let option = button.previousElementSibling.value;
+                let price = "";
+                if (option === "Small") {
+                    price = "16.99";
+                }
+                if (option === "Medium") {
+                    price = "19.99";
+                }
+                if (option === "Large") {
+                    price = "21.99";
+                }
+                if (option === "Extra-Large") {
+                    price = "24.99";
+                }
+                // Check if the option is empty
+                if (option === "") {
+                    alert("Please select an option");
+                } else {
+                    // Add the item, option, and price to the cart in local storage
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    cart.push({ name: name, price: price, option: option });
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    // Show a message to the user
+                    alert("Added " + name + " - " + option + " to the cart!");
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

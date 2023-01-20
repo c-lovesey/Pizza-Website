@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Pizza Margherita",
+    "description": "Tomato sauce, mozzarella, basil",
+    "price": 10,
+    "image": "pizza1.jpg"
+  },
+  {
+    "name": "Pizza Pepperoni",
+    "description": "Tomato sauce, mozzarella, pepperoni",
+    "price": 12,
+    "image": "pizza2.jpg"
+  },
+]

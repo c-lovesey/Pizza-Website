@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desserts</title>
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div class="topnav">
+
+          <a href="index.html">Home</a>
+          <a href="pizzas.html">Pizzas</a>
+          <a href="sides.html">Sides</a>
+          <a href="drinks.html">Drinks</a>
+          <a href="desserts.html" class="active">Desserts</a>
+          <a href="mixPizza.html">Mix Pizzas</a>
+          <a href="cart.html">View Cart</a>
+
+
+
+      </div>
+      <h1>Desserts</h1>
+      <div class="grid">
+          <div class="grid-item">
+              <h2>Phish Food - 465ml</h2>
+              <img src="Images/DessertImage1.webp" class="Dessert">
+              <p>Chocolate ice cream with marshmallow, caramel and chocolatey shaped fish.<br /> $5.99  <button class="add-to-cart" data-size="465ml" data-name="Phish Food" data-price="5.99">Add to Cart</button></p>
+          </div>
+          <div class="grid-item">
+              <h2>White Chocolate - 440ml</h2>
+              <img src="Images/DessertImage2.webp" class="Dessert">
+              <p>Velvety ice cream with a cookie flavoured chocolate sauce swirl, encased in a cracking white chocolate shell with cookie pieces.<br /> $5.99  <button class="add-to-cart" data-size="440ml" data-name="Magnum Double White Chocolate & Cookies Tub" data-price="5.99">Add to Cart</button></p>
+          </div>
+          <div class="grid-item">
+              <h2>Cookies</h2>
+              <img src="Images/DessertImage3.webp" class="Dessert">
+              <p>4 crunchy chewy warm & gooey cookies loaded with choc chips. <br /> $5.99 <button class="add-to-cart" data-size="4" data-name="Cookies" data-price="5.99">Add to Cart</button></p>
+                    </div>
+
+          <div class="grid-item">
+              <h2>Caramel Chew Chew - 465ml</h2>
+              <img src="Images/DessertImage4.webp" class="Dessert">
+              <p>Caramel ice cream with a caramel swirl and chocolatey covered caramel chunks. <br /> $5.99 <button class="add-to-cart" data-size="465ml" data-name="Caramel Chew Chew" data-price="5.99">Add to Cart</button></p>
+          </div>
+          <div class="grid-item">
+              <h2>Cookie Dough - 465ml</h2>
+              <img src="Images/DessertImage5.webp" class="Dessert">
+              <p>Vanilla ice cream with chunks of chocolate chip cookie dough and chocolatey chunks.<br /> $5.99 <button class="add-to-cart" data-size="465ml" data-name="Cookie Dough" data-price="5.99">Add to Cart</button></p>
+          </div>
+          <div class="grid-item">
+              <h2>Chocolate Fudge Brownie - 465ml</h2>
+              <img src="Images/DessertImage6.webp" class="Dessert">
+              <p>Chocolate ice cream with chocolate brownie pieces.<br /> $5.99 <button class="add-to-cart" data-size="465ml" data-name="Chocolate Fudge Brownie" data-price="5.99">Add to Cart</button></p>
+          </div>
+          </div>
+          <script>
+              // Add click event listener to all buttons with the class "add-to-cart"
+              let addToCartButtons = document.querySelectorAll(".add-to-cart");
+              addToCartButtons.forEach(function (button) {
+                  button.addEventListener("click", function () {
+                      // Get the name and price of the item from the button's "data" attributes
+                      let name = button.getAttribute("data-name");
+                      let price = button.getAttribute("data-price");
+                      let option = button.getAttribute("data-size");
+
+                      // Add the item to the cart in local storage
+                      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                      cart.push({ name: name, price: price, option: option });
+                      localStorage.setItem("cart", JSON.stringify(cart));
+
+                      // Show a message to the user
+                      alert("Added " + name + " to the cart!");
+                  });
+              });
+          </script>
+  </body>
+</html>

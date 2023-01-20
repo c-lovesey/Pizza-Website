@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sides</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="topnav">
+
+        <a href="index.html">Home</a>
+        <a href="pizzas.html">Pizzas</a>
+        <a href="sides.html" class="active">Sides</a>
+        <a href="drinks.html">Drinks</a>
+        <a href="desserts.html">Desserts</a>
+        <a href="mixPizza.html">Mix Pizzas</a>
+
+        <a href="cart.html">View Cart</a>
+
+
+    </div>
+    <h1>Sides</h1>
+
+    <div class="grid">
+        <div class="grid-item">
+            <h2>Garlic Pizza Bread</h2>
+            <img src="Images/SidesImage1.webp" class="Dessert">
+            <p>Our fresh 6” dough base topped with garlic and parsley.</p>
+            <p>$5.99</p>
+            <button class="add-to-cart" data-name="Garlic Pizza Bread"data-price="5.99">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Potato Wedges</h2>
+            <img src="Images/SideImage2.webp" class="Dessert">
+            <p>Seasoned and baked to perfection. Served with dip.</p>
+            <p>$5.99</p>
+            <button class="add-to-cart" data-name="Potato Wedges" data-price="5.99" onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Vegan Nuggets</h2>
+            <img src="Images/SideImage3.webp" class="Dessert">
+            <p>7 Soya based Vegan Nuggets, coated in crispy southern-fried flavour breadcrumbs. Served with a Vegan Garlic & Herb dip. </p>
+            <p>$6.99</p>
+            <button class="add-to-cart" data-name="Vegan Nuggets" data-price="6.99">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Garlic Dippers</h2>
+            <img src="Images/SideImage4.webp" class="Dessert">
+            <p>Freshly baked dough sticks, brushed with garlic and served with a garlic and herb dip.</p>
+            <p>$5.99</p>
+            <button class="add-to-cart" data-name="Garlic Dippers" data-price="5.99">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Chicken Strips</h2>
+            <img src="Images/SideImage5.webp" class="Dessert">
+            <p>7 Chicken breast goujons, coated in crispy breadcrumbs, served with dip.</p>
+            <p>$6.99</p>
+            <button class="add-to-cart" data-name="Chicken Strips" data-price="6.99">Add to Cart</button>
+        </div>
+        <div class="grid-item">
+            <h2>Spicy Nuggets</h2>
+            <img src="Images/SideImage6.webp" class="Dessert">
+            <p>7 Pieces of white chicken breast in a mildly spicy, crispy coating, served with a garlic & herb dip.</p>
+            <p>$6.99</p>
+            <button class="add-to-cart" data-name="Spicy Nuggets" data-price="6.99">Add to Cart</button>
+        </div>
+
+        <div class="grid-item">
+            <h2>Chicken Wings</h2>
+            <img src="Images/SideImage7.webp" class="Dessert">
+            <p>7 Lightly spiced Chicken Wings.</p>
+            <p>$6.99</p>
+            <button class="add-to-cart" data-name="Chicken Wings" data-price="6.99">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        let addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                // Get the name, price, and option of the item from the button's "data" attributes and dropdown menu
+                let name = button.getAttribute("data-name");
+                /*let price = button.getAttribute("data-price");*/
+
+                let price = button.getAttribute("data-price");
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push({ name: name, price: price });
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                // Show a message to the user
+                alert("Added " + name + " to the cart!");
+            
+            });
+        });
+            
+    </script>
+</body>
+</html>
